@@ -1,6 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+int count_lines(char* content) {
+  return 0;
+}
+
+int compress_lined(char* file_path) {
+  return 0;
+}
+
+int concatenate_files(char **file_paths) {
+  return 0;
+}
+
 char* get_file_content(char* file_path) {
   FILE *fptr = fopen(file_path, "rb");
   if (fptr == NULL) {
