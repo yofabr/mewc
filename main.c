@@ -42,8 +42,6 @@ Flags parse_flags(int argc, char *argv[], int *file_start) {
     }
   }
 
-  if (flags.number_nonblank) flags.number_lines = 0;
-
   *file_start = i;
   return flags;
 }
@@ -64,14 +62,12 @@ void display_file(FILE *fp, Flags *flags, int *line_num) {
       }
     }
 
-    if (flags->number_lines) {
-      if (flags->number_nonblank) {
-        if (!is_blank) {
-          printf("%6d\t", (*line_num)++);
-        }
-      } else {
+    if (flags->number_nonblank) {
+      if (!is_blank) {
         printf("%6d\t", (*line_num)++);
       }
+    } else if (flags->number_lines) {
+      printf("%6d\t", (*line_num)++);
     }
 
     fputs(line, stdout);
